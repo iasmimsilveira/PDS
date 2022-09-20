@@ -4,7 +4,7 @@ clc
 
 pkg load image
 
-img = imread('denteraioX.jpg'); % Fazendo a leitura da imagem
+img = imread('img_ias.jpg'); % Fazendo a leitura da imagem
 figure, imshow (img);
 
 R = img (:,:,1);

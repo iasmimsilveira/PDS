@@ -1,25 +1,14 @@
 clear all
 close all
 clc
-
 pkg load image
 
-img = imread('Tucano.jpg'); % Fazendo a leitura da imagem
-figure,imshow(img); c=colorbar(); % Visualizando
+img = imread ('img_alface.jpg'); % Fazendo a leitura da imagem
+figure,imshow(img); c=colorbar(), title('IMAGEM ORIGINAL'); % Visualizando
 
-% Laplaciano
-h = [0 -1 0; -1 4 -1; 0 -1 0];
-L = filter2(h, img, 'same');
-L = abs (L);
+imgPB = rgb2gray(img);
 
-figure,imshow(L, []); c=colorbar();
+figure,imshow(imgPB); c=colorbar(); % Vizualizando PB
 
-
-% Imagem com ruído
-img2_noise = imnoise(img, "salt & pepper");
-figure, imshow(img2_noise,'same');
-
-
-% Aplicando o operador Laplaciano na imagem com ruído
-L = filter2(h, img2_noise, 'same');
-figure,imshow(L, []); c=colorbar();
+img_noise = imnoise(imgPB,"salt & pepper");
+figure,imshow(img_noise,[]);
